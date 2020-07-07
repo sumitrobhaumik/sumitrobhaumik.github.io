@@ -467,3 +467,7 @@ footer {
 .mac-seamless-mode #typora-sidebar {
     background-color: var(--side-bar-bg-color);
 }
+
+span{
+	font-size: 1.5em;
+}
