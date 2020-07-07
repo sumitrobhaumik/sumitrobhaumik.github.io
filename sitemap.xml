@@ -7,5 +7,9 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://sumitrobhaumik.co//about.html</loc><lastmod>2020-07-07</lastmod><priority>1.0</priority></url>
 <url><loc>https://sumitrobhaumik.co//contact.html</loc><lastmod>2020-07-07</lastmod><priority>1.0</priority></url>
 <url><loc>https://sumitrobhaumik.co//index.html</loc><lastmod>2020-07-07</lastmod><priority>1.0</priority></url>
+<url><loc>https://sumitrobhaumik.co//posts/meta.html</loc><lastmod>2020-07-07</lastmod><priority>1.0</priority></url>
+<url><loc>https://sumitrobhaumik.co//posts/hardware.html</loc><lastmod>2020-07-07</lastmod><priority>1.0</priority></url>
 <url><loc>https://sumitrobhaumik.co//posts/markdown_test.html</loc><lastmod>2020-07-07</lastmod><priority>1.0</priority></url>
+<url><loc>https://sumitrobhaumik.co//posts/pihole.html</loc><lastmod>2020-07-07</lastmod><priority>1.0</priority></url>
+<url><loc>https://sumitrobhaumik.co//posts.html</loc><lastmod>2020-07-07</lastmod><priority>1.0</priority></url>
 </urlset>
