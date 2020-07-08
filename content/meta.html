@@ -4,16 +4,19 @@
 		<link rel="stylesheet" href="/typora-theme-next/next.css">
 	</head>
 	<body>
-		<span style="float:left;">
-			<a href="/index.html"><b>Sumitro's Corner</b></a>
-		</span>
-		<span style="float:right;">
-			<a href="/about.html">About Me</a> |
-			<a href="/contact.html">Contact</a> |
-			<a href="/posts.html">Posts</a>
-		</span>
+		<div class="div_header" style="background-color:green;">
+			<div style="float:left">
+				<a href="/index.html"><b>Sumitro's Corner</b></a>
+			</div>
+			<div style="float:right">
+				<a href="/about.html">About Me</a> |
+				<a href="/contact.html">Contact</a> |
+				<a href="/posts.html">Posts</a>
+			</div>
+		</div>
 		<br>
 		<br>
+		<div class="div_body" style="backgroun-color:grey">
 <h1 id="About%20This%20Site">About This Site</h1>
 
 <p>There are 4 components regarding building this site</p>
@@ -33,16 +36,14 @@ So far, it&#39;s quite good.
 Opening large files can take a while but the delays are nothing too serious.
 All my requirements are satisfied.</p>
 
-<h4 id="Content%20Generation">Content Generation</h4>
+<h3 id="Content%20Generation">Content Generation</h3>
 
 <p>I&#39;m actually using a minimal static site generator called <a href="https://www.romanzolotarev.com/ssg.html">ssg</a> by Roman Zolotarev, which I heard about from <a href="https://www.youtube.com/channel/UCsnGwSIHyoYN0kiINAGUKxg">Wolfgang&#39;s Channel</a>.
 It&#39;s light because it&#39;s written in simple <code>shell</code> with 180 LOC, which is just hilarious.</p>
 
-<p>No dependancies (other than <a href="https://kristaps.bsd.lv/lowdown">lowdown</a> which converts markdown to <code>html</code> among other formats)</p>
+<p>No dependancies or extra libraries (other than <a href="https://kristaps.bsd.lv/lowdown">lowdown</a> which converts markdown to <code>html</code> among other formats)</p>
 
-<p>No extra libraries.</p>
-
-<h4 id="Styling">Styling</h4>
+<h3 id="Styling">Styling</h3>
 
 <p><code>ssg</code> simply spits out <code>html</code> without any styling.
 So I had to search for some nice <code>css</code> templates for markdown.
@@ -75,12 +76,21 @@ That&#39;s almost the defacto domain market place in India.</p>
 <h2 id="Conclusion">Conclusion</h2>
 
 <p>I like this setup and I intend to keep working on this.
-Once the site has been setup, with the proper header&#47;footer&#47;theme, making content is quite convenient.
-Always make sure you have a good backup&#47;restore method.</p>
+Once the site has been setup, with the proper header&#47;footer&#47;theme, making content is quite convenient.</p>
+
+<p>Things to keep in mind</p>
+
+<ol start="1">
+<li>Have a backup for your markdown content.</li>
+<li>Don&#39;t embed your fonts locally, unless your host has a fast connection. Use <a href="https://fonts.google.com/">Google Fonts</a> instead.</li>
+<li>Have a clean&#47;build&#47;deploy script. Saves a lot of time.</li>
+</ol>
 	<br>
 	<br>
 	<br>
 	<br>
+	<br>
+	</div>
 	<br>
 	By <b>Sumitro Bhaumik</b>. Copyright 2020.
 
