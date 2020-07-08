@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<title>Sumitro's Corner</title>
+		<link rel="stylesheet" href="/typora-theme-next/next.css">
+	</head>
+	<body>
+		<span style="float:left;">
+			<a href="/index.html"><b>Sumitro's Corner</b></a>
+		</span>
+		<span style="float:right;">
+			<a href="/about.html">About Me</a> |
+			<a href="/contact.html">Contact</a> |
+			<a href="/posts.html">Posts</a>
+		</span>
+		<br>
+		<br>
+<h1 id="About%20This%20Site">About This Site</h1>
+
+<p>There are 4 components regarding building this site</p>
+
+<ol start="1">
+<li>Development</li>
+<li>Testing</li>
+<li>Domain name</li>
+<li>Hosting</li>
+</ol>
+
+<h2 id="Development">Development</h2>
+
+<p>My build area is actually a Raspberry Pi 3 running Ubuntu Server 20.04 LTS.
+This is mainly because I wanted to see how well does it work as a development testbed.
+So far, it&#39;s quite good.
+Opening large files can take a while but the delays are nothing too serious.
+All my requirements are satisfied.</p>
+
+<h4 id="Content%20Generation">Content Generation</h4>
+
+<p>I&#39;m actually using a minimal static site generator called <a href="https://www.romanzolotarev.com/ssg.html">ssg</a> by Roman Zolotarev, which I heard about from <a href="https://www.youtube.com/channel/UCsnGwSIHyoYN0kiINAGUKxg">Wolfgang&#39;s Channel</a>.
+It&#39;s light because it&#39;s written in simple <code>shell</code> with 180 LOC, which is just hilarious.</p>
+
+<p>No dependancies (other than <a href="https://kristaps.bsd.lv/lowdown">lowdown</a> which converts markdown to <code>html</code> among other formats)</p>
+
+<p>No extra libraries.</p>
+
+<h4 id="Styling">Styling</h4>
+
+<p><code>ssg</code> simply spits out <code>html</code> without any styling.
+So I had to search for some nice <code>css</code> templates for markdown.
+I thought it would be easy but it took some time to find something decent but not too heavy.
+I settled for <a href="https://theme.typora.io">themes by Typora</a> which is actually meant for their application; a markdown editor.
+The current theme that i&#39;m using is called <a href="https://theme.typora.io/theme/NexT">NexT</a>.</p>
+
+<p>It took some manual tweaking to get it just right.</p>
+
+<h2 id="Testing">Testing</h2>
+
+<p>I&#39;m testing the website on the same Pi using Python&#39;s built in web-server. </p>
+
+<p>It can be easily started like this</p>
+
+<pre><code>python3 -m http.server
+</code></pre>
+
+<p>By default, it runs at port <code>8000</code> and hosts the current directory.</p>
+
+<h2 id="Domain%20name">Domain name</h2>
+
+<p>I bought this domain name from <a href="https://in.godaddy.com">GoDaddy</a>.
+That&#39;s almost the defacto domain market place in India.</p>
+
+<h2 id="Hosting">Hosting</h2>
+
+<p>Since the site is static, <a href="https://pages.github.com">Github Pages</a> is good enough.</p>
+
+<h2 id="Conclusion">Conclusion</h2>
+
+<p>I like this setup and I intend to keep working on this.
+Once the site has been setup, with the proper header&#47;footer&#47;theme, making content is quite convenient.
+Always make sure you have a good backup&#47;restore method.</p>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	By <b>Sumitro Bhaumik</b>. Copyright 2020.
+
+	</body>
+
+</html>
