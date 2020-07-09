@@ -35,7 +35,7 @@
 
 <p>My build area is actually a Raspberry Pi 3 running Ubuntu Server 20.04 LTS.
 This is mainly because I wanted to see how well does it work as a development testbed.
-So far, it&#39;s quite good.
+So far, it&#39;s development has been quite smooth.
 Opening large files can take a while but the delays are nothing too serious.
 All my requirements are satisfied.</p>
 
@@ -54,7 +54,7 @@ I thought it would be easy but it took some time to find something decent but no
 I settled for <a href="https://theme.typora.io">themes by Typora</a> which is actually meant for their application; a markdown editor.
 The current theme that i&#39;m using is called <a href="https://theme.typora.io/theme/NexT">NexT</a>.</p>
 
-<p>It took some manual tweaking to get it just right.</p>
+<p>It took some manual tweaking to get it just right, specifically getting the code blocks right.</p>
 
 <h2 id="Testing">Testing</h2>
 
@@ -70,7 +70,9 @@ The current theme that i&#39;m using is called <a href="https://theme.typora.io/
 <h2 id="Domain%20name">Domain name</h2>
 
 <p>I bought this domain name from <a href="https://in.godaddy.com">GoDaddy</a>.
-That&#39;s almost the defacto domain market place in India.</p>
+That&#39;s almost the defacto domain market place in India.
+Remember to properly redirect your domain to your host, otherwise your site will be unreachable.
+I used <a href="https://hackernoon.com/how-to-set-up-godaddy-domain-with-github-pages-a9300366c7b">this</a> resource to perform the redirection.</p>
 
 <h2 id="Hosting">Hosting</h2>
 
@@ -81,12 +83,14 @@ That&#39;s almost the defacto domain market place in India.</p>
 <p>I like this setup and I intend to keep working on this.
 Once the site has been setup, with the proper header&#47;footer&#47;theme, making content is quite convenient.</p>
 
-<p>Things to keep in mind</p>
+<h3 id="Things%20to%20keep%20in%20mind">Things to keep in mind</h3>
 
 <ol start="1">
 <li>Have a backup for your markdown content.</li>
 <li>Don&#39;t embed your fonts locally, unless your host has a fast connection. Use <a href="https://fonts.google.com/">Google Fonts</a> instead.</li>
-<li>Have a clean&#47;build&#47;deploy script. Saves a lot of time.</li>
+<li>Have a clean&#47;build&#47;deploy script. It saves a lot of time.</li>
+<li>Remember to trim your <code>css</code> file incase you.</li>
+<li>Adding a custom 404 page looks nice.</li>
 </ol>
 	<br>
 	<br>
