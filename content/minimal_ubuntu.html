@@ -42,7 +42,7 @@ I&#39;ve decided to use the i3 window manager.</p>
 
 <p>We need to have the building blocks of a graphical UI, for which we need <code>xorg</code>.</p>
 
-<pre><code>$ sudo apt install xorg xinit
+<pre><code>sudo apt install xorg xinit
 </code></pre>
 
 <p>We now need to be able to compile <code>i3</code>.
@@ -50,12 +50,15 @@ We can use the <code>i3</code> from <code>apt</code>, but I prefer to use <code>
 
 <p>Hence, we need the following packages for compiling and making.</p>
 
-<pre><code>$ sudo apt install git make gcc autoconf
+<pre><code>sudo apt install git make gcc autoconf
 </code></pre>
 
 <p>Now, we install all the dependancies of <code>i3-gaps</code></p>
 
-<pre><code>$ sudo apt install libpango1.0-dev libyajl-dev libstartup-notification0-dev libev-dev libtool libxkbcommon-dev libxkbcommon-x11-dev libxcb1-dev libxcb-randr0-dev libxcb-util0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxcb-shape0-dev libxcb-xrm-dev xutils-dev
+<pre><code>sudo apt install libpango1.0-dev libyajl-dev libstartup-notification0-dev \
+libev-dev libtool libxkbcommon-dev libxkbcommon-x11-dev libxcb1-dev libxcb-randr0-dev \
+libxcb-util0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-cursor-dev \
+libxcb-xinerama0-dev libxcb-xkb-dev libxcb-shape0-dev libxcb-xrm-dev xutils-dev
 </code></pre>
 
 <h3 id="Installing%20i3">Installing i3</h3>
@@ -78,15 +81,15 @@ Also, this might be a few commits behind <code>i3-gaps</code>.</p>
 
 <p>So clone, make and install <code>i3</code></p>
 
-<pre><code>$ git clone https:&#47;&#47;github.com&#47;resloved&#47;i3
-$ cd i3
-$ autoreconf --force --install
-$ rm -rf build
-$ mkdir build
-$ cd build
-$ ..&#47;configure --prefix=&#47;usr --sysconfdir=&#47;etc
-$ make
-$ sudo make install
+<pre><code>git clone https:&#47;&#47;github.com&#47;resloved&#47;i3
+cd i3
+autoreconf --force --install
+rm -rf build
+mkdir build
+cd build
+..&#47;configure --prefix=&#47;usr --sysconfdir=&#47;etc
+make
+sudo make install
 </code></pre>
 
 <p>At this point, your <code>i3</code> installation is complete.</p>
@@ -115,15 +118,17 @@ To make it more usable, you need to install a status bar.
 <code>i3</code> itself comes with <code>i3-bar</code> but I prefer to use <a href="https://github.com/polybar/polybar"><code>polybar</code></a>.</p>
 
 <p>Keep in mind, this setup is so barebones that some functions, that we take for granted in a standard &#8220;bloated&#8221; DEs, are missing.
-You need to create scripts for them of find lightweight alternatives, such as</p>
+You need to create scripts for them OR find lightweight alternatives.</p>
+
+<p>Some common requirements are</p>
 
 <ol start="1">
-<li>A login manager or a display manager, such as <code>gdm</code>, <code>lightdm</code></li>
-<li>A program launcher - I use <code>rofi</code></li>
-<li>A poweroff&#47;reboot&#47;logout menu - I use <code>rofi</code> for this as well</li>
+<li>Login manager or a display manager, such as <code>gdm</code>, <code>lightdm</code></li>
+<li>Program launcher - I use <code>rofi</code></li>
+<li>Poweroff&#47;reboot&#47;logout menu - I use <code>rofi</code> for this as well</li>
 <li>Display auto-detection system - I use <code>xrandr</code></li>
-<li>A notification manager - I use <code>dunst</code></li>
-<li>A wallpaper setter - I use <code>nitrogen</code></li>
+<li>Notification manager - I use <code>dunst</code></li>
+<li>Wallpaper manager - I use <code>nitrogen</code></li>
 </ol>
 
 <p>A good thing about all the above mentioned programs is that they are highly customizable, so you can set it exactly how you want it.
