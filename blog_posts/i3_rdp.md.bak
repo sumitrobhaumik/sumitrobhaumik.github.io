@@ -1,0 +1,34 @@
+# Enabling `i3` for Remote Desktop Protocol
+
+---
+
+[Source](https://linuxize.com/post/how-to-install-xrdp-on-ubuntu-18-04/)
+
+### Install `xrdp` server
+
+```
+$ sudo apt install xrdp
+```
+
+### Enabling `i3` upon login using `rdp` for single user
+
+1. Edit the file `~/.xsessions` or create a new file
+2. Add the following lines to the file
+
+    ```
+    #!/bin/sh
+
+    exec /usr/bin/i3
+    ```
+3. Restart `xrdp` service
+
+    ```
+    $ sudo systemctl restart xrdp.service
+    ```
+
+Now you can connect to this machine into `i3` using any RDP client.
+
+### Enabling `i3` upon login using `rdp` for all users
+
+Keep in mind that `i3` RDP login has been mapped to your account only.
+If you want to set `i3` as the default RDP login for all, edit the file `/etc/xrdp/startwm.sh` and do steps 2 and 3 as mentioned in the previous section.
