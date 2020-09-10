@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://sumitrobhaumik.co/blog_posts/my_apps/">
+        <link rel="canonical" href="https://sumitrobhaumik.co/blog_posts/i3_sxhkd/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>My Choice of Minimalist Apps - Sumitro's Corner</title>
+        <title>Using Simple X Hotkey Daemon with i3 - Sumitro's Corner</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -78,8 +78,16 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#my-choice-of-minimalist-apps" class="nav-link">My Choice of Minimalist Apps</a>
+            <li class="nav-item" data-level="1"><a href="#using-simple-x-hotkey-daemon-with-i3" class="nav-link">Using Simple X Hotkey Daemon with i3</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#how-to-switch-to-sxhkd" class="nav-link">How to switch to sxhkd?</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#things-to-keep-in-mind" class="nav-link">Things to keep in mind</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             <li class="nav-item" data-level="2"><a href="#conclusion" class="nav-link">Conclusion</a>
               <ul class="nav flex-column">
               </ul>
@@ -91,49 +99,55 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="my-choice-of-minimalist-apps">My Choice of Minimalist Apps</h1>
-<hr />
-<p>These are the terminal-based apps that are part of my daily workflow.
-They might be available in your OS's repository, otherwise, you can always download from Github.</p>
-<h3 id="ranger">ranger</h3>
-<p>Terminal File Manager | <a href="https://github.com/ranger/ranger">Link</a></p>
-<p>This is a great file manager.
-It's quite fast, easy to start off with, uses vim-based shortcuts, and plenty customizable</p>
-<h3 id="nnn">nnn</h3>
-<p>Terminal File Manager | <a href="https://github.com/jarun/nnn">Link</a></p>
-<p>This is my current file manager.
-It's even faster than <strong>ranger</strong> because it's written in C (<strong>ranger</strong> is written in Python).
-The design choices of this application is a bit out of the oridinary but it's very speedy, specially in low-end devices, such as Raspberry Pi's.</p>
-<h3 id="cmus">cmus</h3>
-<p>Terminal Music Player | <a href="https://cmus.github.io/">Link</a></p>
-<p>This is a simple music player which is plenty fast.
-It follows a server-client model.
-So you can send commands for volume control or previous/next track, even remotely.</p>
-<h3 id="tremc">tremc</h3>
-<p>Terminal Torrent Manager | <a href="https://github.com/tremc/tremc">Link</a></p>
-<p>This needs to be used in conjunction with <a href="https://transmissionbt.com/">transmission</a>, which is the actual torrent client.
-Normally, people use the <code>transmission-gtk</code> package to interact.
-But why not use a curses variant?
-It covers only the basic usecases though.</p>
-<h3 id="speedometer">speedometer</h3>
-<p>Terminal Network Usage Monitor | <a href="http://excess.org/speedometer/">Link</a></p>
-<p>Plots a graph of the network usage.
-Simple and useful.</p>
-<h3 id="tty-clock">tty-clock</h3>
-<p>Terminal Clock | <a href="https://github.com/xorg62/tty-clock">Link</a></p>
-<p>If you wanted a clock for the terminal, this is it.</p>
-<h3 id="cli-visualizer">cli-visualizer</h3>
-<p>Terminal Music Visualizer | <a href="https://github.com/dpayne/cli-visualizer">Link</a></p>
-<p>If you want a cute little distraction in your terminal which dances with your music, this would do it.</p>
+<h1 id="using-simple-x-hotkey-daemon-with-i3">Using Simple X Hotkey Daemon with i3</h1>
+<p>One thing about <a href="https://i3wm.org/">i3</a> which I like is that it gives you all the programs required to get working right away, which are primarily</p>
+<ul>
+<li>The window manager</li>
+<li>A status bar</li>
+<li>A hotkey manager</li>
+</ul>
+<p>The default status bar is good enough, but if you want, you can switch i3bar with another bar, such as Polybar, just by editing the i3 config file.</p>
+<p>But, it's not the case with the hotkey manager. 
+It's coupled closely with the i3 window manager, and I don't think it can be closed/terminated.</p>
+<p>However, it doesn't mean you can't use a different hotkey manager. 
+This is where <a href="https://wiki.archlinux.org/index.php/Sxhkd">Simple X Hotkey Daemon</a>, or <code>sxhkd</code> comes into the picture, which is a standalone hotkey daemon.</p>
+<p>The parser of sxhkd is more powerful than i3's parser, thus you can perform some complicated keybinds.
+Being standalone, you can use this with other window managers as well.</p>
+<h2 id="how-to-switch-to-sxhkd">How to switch to sxhkd?</h2>
+<p>I would suggest you read through the sxhkd manual and <a href="https://github.com/baskerville/sxhkd">project page</a> first.
+But the basic structure of a keybind looks like this</p>
+<div class="highlight"><pre><span></span><code>key combination
+    command
+</code></pre></div>
+
+<p>That is, you start a line with a desired key combination, and in the next line you write the command, starting with a whitespace.</p>
+<p>For adapting your i3 commands, all your keybinds need to be appended by <code>i3-msg</code>
+For example, in i3, you have a command to kill the current window. 
+It's usually like this</p>
+<div class="highlight"><pre><span></span><code>bindsym $mod+shift+q kill
+</code></pre></div>
+
+<p>In sxhkd, it should be written as follows</p>
+<div class="highlight"><pre><span></span><code>super + shift + q
+    i3-msg kill
+</code></pre></div>
+
+<p>Now you can start porting all your commands from the i3 config to the sxhkd config.</p>
+<p>To take things slow, I'll suggest to port commands in groups, that is, first you port the movement keys, check out whether it's working, and then port the window adjustment keys.
+Porting it this way makes debugging easier.</p>
+<h2 id="things-to-keep-in-mind">Things to keep in mind</h2>
+<p>For i3 to properly work, you still need to keep a minimum viable i3 config file, which is this</p>
+<div class="highlight"><pre><span></span><code># i3 config file (v4)
+set $mod Mod4
+</code></pre></div>
+
+<p>Without this, i3 will not work and throw an error.
+This behaviour is documented <a href="https://i3wm.org/docs/userguide.html#configuring">here</a>.</p>
+<p>Also, sxhkd is case sensitive, unlike i3.
+<strong>Shift</strong> is not a valid key, while <strong>shift</strong> is.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Other than the ones mentioned above, some apps are just too popular to warrant a special mention such as</p>
-<ol>
-<li><code>vim</code></li>
-<li><code>htop</code></li>
-<li><code>screen</code></li>
-</ol>
-<p>Once you get used to terminal based minimalist apps, you will start to see that traditional GUI apps look very "busy", as if the app is "advertising" what it wants to do.
-There is less hand-holding in terminal apps.</p></div>
+<p>That's it.
+Once you port all your commands, it should work just like before but with the added benefit of a decoupled window manager and hotkey daemon.</p></div>
             </div>
         </div>
 
