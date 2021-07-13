@@ -12,11 +12,11 @@
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/purebasic.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/purebasic.min.css">
 
         <script src="../../js/jquery-1.10.2.min.js" defer></script>
         <script src="../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
@@ -119,22 +119,19 @@ I've decided to use the i3 window manager.</p>
 </ol>
 <h2 id="pre-installation-steps">Pre-installation Steps</h2>
 <p>We need to have the building blocks of a graphical UI, for which we need <code>xorg</code>.</p>
-<div class="highlight"><pre><span></span><code>sudo apt install xorg xinit
-</code></pre></div>
-
+<div class="highlight"><pre><span></span>sudo apt install xorg xinit
+</pre></div>
 <p>We now need to be able to compile <code>i3</code>.
 We can use the <code>i3</code> from <code>apt</code>, but I prefer to use <code>i3-gaps</code> which looks a bit nicer and is unfortunately not availble in the repos.</p>
 <p>Hence, we need the following packages for compiling and making.</p>
-<div class="highlight"><pre><span></span><code>sudo apt install git make gcc autoconf
-</code></pre></div>
-
+<div class="highlight"><pre><span></span>sudo apt install git make gcc autoconf
+</pre></div>
 <p>Now, we install all the dependancies of <code>i3-gaps</code></p>
-<div class="highlight"><pre><span></span><code>sudo apt install libpango1.0-dev libyajl-dev libstartup-notification0-dev \
+<div class="highlight"><pre><span></span>sudo apt install libpango1.0-dev libyajl-dev libstartup-notification0-dev \
 libev-dev libtool libxkbcommon-dev libxkbcommon-x11-dev libxcb1-dev libxcb-randr0-dev \
 libxcb-util0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-cursor-dev \
 libxcb-xinerama0-dev libxcb-xkb-dev libxcb-shape0-dev libxcb-xrm-dev xutils-dev
-</code></pre></div>
-
+</pre></div>
 <h3 id="installing-i3">Installing i3</h3>
 <p><a href="https://github.com/pasiegel/i3-gaps-install-ubuntu">Source</a></p>
 <p>Now that our build environment is ready, we can compile and install <code>i3</code></p>
@@ -148,7 +145,7 @@ libxcb-xinerama0-dev libxcb-xkb-dev libxcb-shape0-dev libxcb-xrm-dev xutils-dev
 However, the installation procedure is the same for all variants.
 Also, this might be a few commits behind <code>i3-gaps</code>.</p>
 <p>So clone, make and install <code>i3</code></p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/resloved/i3
+<div class="highlight"><pre><span></span>git clone https://github.com/resloved/i3
 cd i3
 autoreconf --force --install
 rm -rf build
@@ -157,8 +154,7 @@ cd build
 ../configure --prefix=/usr --sysconfdir=/etc
 make
 sudo make install
-</code></pre></div>
-
+</pre></div>
 <p>At this point, your <code>i3</code> installation is complete.</p>
 <p>Note : In case you get a dependancy error (there shouldn't be any), read the error output carefully. 
 Install the missing packages and repeat the above step from scratch.</p>
@@ -168,10 +164,9 @@ Which is why we installed <code>xinit</code>.</p>
 <ol>
 <li>
 <p>Create <code>~/.xinitrc</code> and edit it as follows</p>
-<div class="highlight"><pre><span></span><code>#!/bin/sh
+<div class="highlight"><pre><span></span>#!/bin/sh
 exec /usr/bin/i3
-</code></pre></div>
-
+</pre></div>
 </li>
 <li>
 <p>Run <code>startx</code> in the terminal</p>
@@ -221,16 +216,13 @@ Setting this up can be time-consuming, but you can be assured that there are no 
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
+                <p>From here you can search these documents. Enter your search terms below.</p>
                 <form>
                     <div class="form-group">
                         <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results"></div>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
             <div class="modal-footer">
             </div>

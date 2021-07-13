@@ -12,11 +12,11 @@
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/purebasic.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/purebasic.min.css">
 
         <script src="../../js/jquery-1.10.2.min.js" defer></script>
         <script src="../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
@@ -116,31 +116,27 @@ Being standalone, you can use this with other window managers as well.</p>
 <h2 id="how-to-switch-to-sxhkd">How to switch to sxhkd?</h2>
 <p>I would suggest you read through the sxhkd manual and <a href="https://github.com/baskerville/sxhkd">project page</a> first.
 But the basic structure of a keybind looks like this</p>
-<div class="highlight"><pre><span></span><code>key combination
+<div class="highlight"><pre><span></span>key combination
     command
-</code></pre></div>
-
+</pre></div>
 <p>That is, you start a line with a desired key combination, and in the next line you write the command, starting with a whitespace.</p>
 <p>For adapting your i3 commands, all your keybinds need to be appended by <code>i3-msg</code>
 For example, in i3, you have a command to kill the current window. 
 It's usually like this</p>
-<div class="highlight"><pre><span></span><code>bindsym $mod+shift+q kill
-</code></pre></div>
-
+<div class="highlight"><pre><span></span>bindsym $mod+shift+q kill
+</pre></div>
 <p>In sxhkd, it should be written as follows</p>
-<div class="highlight"><pre><span></span><code>super + shift + q
+<div class="highlight"><pre><span></span>super + shift + q
     i3-msg kill
-</code></pre></div>
-
+</pre></div>
 <p>Now you can start porting all your commands from the i3 config to the sxhkd config.</p>
 <p>To take things slow, I'll suggest to port commands in groups, that is, first you port the movement keys, check out whether it's working, and then port the window adjustment keys.
 Porting it this way makes debugging easier.</p>
 <h2 id="things-to-keep-in-mind">Things to keep in mind</h2>
 <p>For i3 to properly work, you still need to keep a minimum viable i3 config file, which is this</p>
-<div class="highlight"><pre><span></span><code># i3 config file (v4)
+<div class="highlight"><pre><span></span># i3 config file (v4)
 set $mod Mod4
-</code></pre></div>
-
+</pre></div>
 <p>Without this, i3 will not work and throw an error.
 This behaviour is documented <a href="https://i3wm.org/docs/userguide.html#configuring">here</a>.</p>
 <p>Also, sxhkd is case sensitive, unlike i3.
@@ -171,16 +167,13 @@ Once you port all your commands, it should work just like before but with the ad
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
+                <p>From here you can search these documents. Enter your search terms below.</p>
                 <form>
                     <div class="form-group">
                         <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results"></div>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
             <div class="modal-footer">
             </div>

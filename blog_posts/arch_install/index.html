@@ -12,11 +12,11 @@
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/purebasic.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/purebasic.min.css">
 
         <script src="../../js/jquery-1.10.2.min.js" defer></script>
         <script src="../../js/bootstrap.min.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
         <script>hljs.initHighlightingOnLoad();</script> 
     </head>
 
@@ -107,38 +107,32 @@ Read <a href="https://itsfoss.com/install-arch-linux/">itsfoss</a> guide for a b
 <h3 id="enable-networking">Enable Networking</h3>
 <p>Enable networking, otherwise you won't have network access after the reboot.</p>
 <p>Install <code>networkmanager</code></p>
-<div class="highlight"><pre><span></span><code>pacman -S networkmanager
-</code></pre></div>
-
+<div class="highlight"><pre><span></span>pacman -S networkmanager
+</pre></div>
 <p>Enable <code>networkmanager</code> as a service</p>
-<div class="highlight"><pre><span></span><code>systemctl <span class="nb">enable</span> NetworkManager.service
-</code></pre></div>
-
+<div class="highlight"><pre><span></span>systemctl <span class="nb">enable</span> NetworkManager.service
+</pre></div>
 <h3 id="enable-ssh">Enable SSH</h3>
 <p>I typically enable <code>ssh</code> in all my machines.
 You can skip this step if you don't want to.</p>
-<div class="highlight"><pre><span></span><code>pacman -S openssh
-</code></pre></div>
-
+<div class="highlight"><pre><span></span>pacman -S openssh
+</pre></div>
 <p>Enable <code>ssh</code> as a service</p>
-<div class="highlight"><pre><span></span><code>systemctl <span class="nb">enable</span> sshd.service
-</code></pre></div>
-
+<div class="highlight"><pre><span></span>systemctl <span class="nb">enable</span> sshd.service
+</pre></div>
 <h3 id="create-an-account">Create an account</h3>
 <p>You should create a new account as you don't want to <code>ssh</code> as <code>root</code>, as it's heavily discouraged.</p>
-<div class="highlight"><pre><span></span><code>useradd -m &lt;username&gt;
+<div class="highlight"><pre><span></span>useradd -m &lt;username&gt;
 passwd &lt;username&gt;
-</code></pre></div>
-
+</pre></div>
 <p>You can choose to give this account root permission as well.</p>
 <h3 id="enable-swap">Enable swap</h3>
 <p>I typically keep a swap partition.
 As this point, it's just a force of habit, even though I don't use the hibernate feature on my machines.
 You can also use a swap file which you can check out <a href="https://www.digitalocean.com/community/tutorials/how-to-add-a-swap-file-on-an-arch-linux-cloud-server">here</a></p>
-<div class="highlight"><pre><span></span><code>mkswap /dev/&lt;swap partition&gt;
+<div class="highlight"><pre><span></span>mkswap /dev/&lt;swap partition&gt;
 swapon -a
-</code></pre></div>
-
+</pre></div>
 <h3 id="edit-fstab">Edit <code>fstab</code></h3>
 <p>I typically have a different partition for <code>root</code> and <code>home</code>.
 It has some advantages, like if your <code>home</code> fills up due to some bug your OS can still work since <code>root</code> is free.
@@ -149,10 +143,9 @@ Also, you can create an image of your <code>home</code> partition easily.</p>
 <li>Check your partition UUID by typing <code>blkid</code></li>
 <li>
 <p>Make an entry in <code>/etc/fstab</code> with the UUID</p>
-<div class="highlight"><pre><span></span><code>UUID=&lt;the partition ID&gt; /home   ext4    defaults    0   0
+<div class="highlight"><pre><span></span>UUID=&lt;the partition ID&gt; /home   ext4    defaults    0   0
 UUID=&lt;swap ID&gt;          swap    swap    defaults    0   0
-</code></pre></div>
-
+</pre></div>
 </li>
 <li>
 <p>Save and exit</p>
@@ -166,12 +159,11 @@ UUID=&lt;swap ID&gt;          swap    swap    defaults    0   0
 Once you get used to AUR, you will not want to download and compile from source again.</p>
 <p>There are multiple AUR helpers; i decided to use <code>yay</code> simply because it's currently the most popular.</p>
 <p>To install <code>yay</code>, you need to install the <code>git</code> and <code>base-devel</code> package, clone <code>yay</code> and then install it.</p>
-<div class="highlight"><pre><span></span><code>pacman -S base-devel git
+<div class="highlight"><pre><span></span>pacman -S base-devel git
 git clone https://aur.archlinux.org/yay.git
 <span class="nb">cd</span> yay
 makepkg -si
-</code></pre></div>
-
+</pre></div>
 <p>Now you can install any package from the AUR using <code>yay</code> using the command <code>yay -S &lt;package name&gt;</code>.
 Make sure not to run <code>yay</code> as root.</p>
 <p>Check out my post regarding the different applications that I use <a href="../my_apps/">here</a></p>
@@ -199,16 +191,13 @@ Make sure not to run <code>yay</code> as root.</p>
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
             </div>
             <div class="modal-body">
-                <p>
-                    From here you can search these documents. Enter
-                    your search terms below.
-                </p>
+                <p>From here you can search these documents. Enter your search terms below.</p>
                 <form>
                     <div class="form-group">
                         <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
                     </div>
                 </form>
-                <div id="mkdocs-search-results"></div>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
             </div>
             <div class="modal-footer">
             </div>
