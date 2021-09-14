@@ -89,28 +89,32 @@
 
 <h1 id="but-why-terminal-apps">But Why Terminal Apps?</h1>
 <hr />
-<p>Ever since I switched to <code>i3</code>, I have simply become fascinated by terminal apps.</p>
+<p><strong>Updated on</strong> : <code>14.09.2021</code></p>
+<p>Ever since I switched to <code>i3</code>, I have simply become fascinated by terminal apps.
+Let's have a little discussion about them.</p>
 <p><strong>What are terminal apps?</strong></p>
-<p>These are any app which runs right inside the terminal.
-These apps don't have a GUI and are mostly keyboard-centric.</p>
+<p>These are apps which runs right inside the terminal.
+These apps don't have a GUI and are mostly keyboard-centric. Some terminal apps also accept mouse events.</p>
 <p>I've listed all the reasons why I think they are cool.</p>
 <h3 id="pros">Pros</h3>
 <ol>
-<li>Extremely fast startup</li>
-<li>Low resource usage</li>
-<li>Less dependancies -&gt; More stable</li>
-<li>Remote access is very easy as long as you have <code>ssh</code></li>
-<li>Community-driven, free and very hackable</li>
-<li><em>[BONUS]</em> They make you look like a hacker /s</li>
+<li>Extremely fast startup - This is because it's only sending a stream of characters to the terminal. Even TUI applications, which may seem like they have windows and panels, are just made up of characters.</li>
+<li>Low resource usage - There is no graphics library involved, so all the resource is used only for the task and nothing else.</li>
+<li>Less dependancies - Unlike GUI apps, which uses a GUI development library (GTK/Qt/Electron) to develop the frontend, terminal apps uses very simple libraries. They can be simple argument-based applications or TUI in nature. All of this results in a smaller codebase as well, which usually results in lesser chance of failure.</li>
+<li>Remote access is very easy as long as you have <code>ssh</code> - This is one of the biggest advantage of terminal apps over GUI apps.</li>
+<li>Open-source and community-driven - All the terminal apps that I have seen (which might be around ~100) are all open-source in nature and not under the control of a for-profit enterprise. So most of the decisions are based on performance and feature improvements, and not for increasing share-holder's profits and gathering telemetry.</li>
+<li><em>[BONUS]</em> They make you look like a hacker <code>/s</code></li>
 </ol>
 <h3 id="cons">Cons</h3>
 <ol>
-<li>Esoteric design - There is a slight learning curve, and sometimes very high.</li>
-<li>Mostly keyboard-driven, which is why they scare novice PC users.</li>
-<li>Hard to access through mobile</li>
-<li>As they are community-driven, only the popular ones are still actively developed</li>
+<li>Esoteric design - There is a slight learning curve, and sometimes very high. However, once you get used the usage philosophy, it will be easier to use them.</li>
+<li>Exclusively keyboard-driven - This is one of the reasons why terminal apps scare novice PC users. Keep in mind they are designed to be used only via the terminal (Some modern terminal apps support mouse usage). It simply takes time to get used to it.</li>
+<li>Not mobile/tab friendly - While it's possible to install a terminal emulator, mobile and tabs are primarily designed for touch interface.</li>
+<li>As they are community-driven, only the popular ones are still actively developed. Others simply die out after getting abandoned by the maintainer.</li>
 <li>A lot of time needs to be invested to tune it to your liking, but it's a one time effort</li>
 </ol>
+<p>While terminal apps are certainly not everyone's cup of tea, once you get used to them, it's hard to leave them.
+Their sheer speed, operational capabilty and robustness is why I always try to find terminal alternative for common day-to-day applications.</p>
 <p>You can find my choice of terminal apps over <a href="../my_apps/">here</a></p></div>
             </div>
         </div>
