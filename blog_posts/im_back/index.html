@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://sumitrobhaumik.co/blog_posts/nnn_easy_tutorial/">
+        <link rel="canonical" href="https://sumitrobhaumik.github.io/blog_posts/im_back/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Easy Tutorial for `nnn` - Sumitro's Corner</title>
+        <title>I'm back - Sumitro's Corner</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -78,25 +78,8 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#easy-tutorial-for-nnn" class="nav-link">Easy Tutorial for nnn</a>
+            <li class="nav-item" data-level="1"><a href="#im-back" class="nav-link">I'm back</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#action-list" class="nav-link">Action list</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#configuring-nnn" class="nav-link">Configuring nnn</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#to-do" class="nav-link">TO-DO</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#scripting" class="nav-link">Scripting</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -104,76 +87,22 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="easy-tutorial-for-nnn">Easy Tutorial for <code>nnn</code></h1>
-<p>I recently tried to switch terminal file managers; from <code>ranger</code> to <code>nnn</code>. This is mainly because of two reasons.</p>
+<h1 id="im-back">I'm back</h1>
+<p>It's a <strong>Saturday</strong> and it's good to be finally back!</p>
+<p>Practically speaking I almost took a year off to sort out all IRL matters (studies and job), and now I can finally donate some time to writing without feeling guilty.
+And it has been quite a ride.</p>
+<p>Remember, your mind is a fragile thing.
+<em>Make sure to give it rest</em>.</p>
+<p>Now that I'm back, I still don't know what to write about.
+I'll probably just go back to the basics and write about stuff which I find interesting in my daily tech life.
+I also intend to read a lot henceforth; both academically and non-academically.</p>
+<p>Regarding writing, I think I'll immediately write about the following topics</p>
 <ol>
-<li><code>nnn</code> is much faster than <code>ranger</code>. This difference is specially noticable when using them on a Raspberry Pi.</li>
-<li>Scripting is much easy in <code>nnn</code></li>
+<li>Setting up scratchpad in i3 with sxhkd</li>
+<li>A small tutorial regarding <code>nnn</code>.
+I have been using it extensively this last year and it has really grown on me.</li>
 </ol>
-<p>Having said that, I do like <code>ranger</code> in one regard; quick previews that work out of the box.
-Also, the application looks more like a traditional GUI file manager.</p>
-<p><code>nnn</code>, on the other hand, has a more spartan appearance; only one pane compared to <code>ranger</code>'s three-pane interface.</p>
-<p>This guide should help you easily transition from <code>ranger</code> to <code>nnn</code>.
-Navigation is still the same.
-I'll suggest to look at the keybindings page with <code>?</code>.
-It's small and easy to look at, unlike <code>ranger</code>'s 1000 line keybinding list.</p>
-<p>I'm mainly putting a list of actions that I commonly use and their corresponding key.</p>
-<h2 id="action-list">Action list</h2>
-<ol>
-<li>Select and deselect - <code>space</code></li>
-<li>
-<p>Bulk rename current directory - <code>r</code></p>
-<ul>
-<li>This will open a file in your preferred editor</li>
-<li>You can choose to edit the filenames you want to</li>
-<li>You can also selectively chose to rename files using <code>space</code></li>
-</ul>
-</li>
-<li>
-<p>Rename current file - <code>^r</code></p>
-</li>
-<li>Edit current file in preferred editor - <code>e</code></li>
-<li>Delete current file - <code>x</code></li>
-<li>Exit at current directory - <code>!</code></li>
-<li>Start shell - <code>]</code></li>
-<li>Sort - <code>t</code> followed by how you want to sort</li>
-<li>Directory size - <code>t</code>, followed by <code>d</code></li>
-<li>Navigate as you type - <code>^n</code></li>
-<li>Add remote mount - <code>c</code></li>
-<li>
-<p>Access all remote mounts</p>
-<ul>
-<li>Best to use bookmarks</li>
-<li>All mounts are located at <code>$HOME/.config/nnn/mounts</code></li>
-<li>Bind key to the above location</li>
-</ul>
-</li>
-<li>
-<p>Disable wrap around while scrolling a list of items. It's also called <em>edge rollover</em></p>
-<ul>
-<li>Pass runtime argument -R</li>
-<li>No environment variable available for this till now</li>
-</ul>
-</li>
-</ol>
-<h2 id="configuring-nnn">Configuring <code>nnn</code></h2>
-<p>Most of the configuration is done via environmental variables.
-I personally prefer config files since they are more portable across different installs.
-So I made my own implementation of a config file</p>
-<p>All metadata of <code>nnn</code> resides in <code>$HOME/.config/nnn/</code>.
-So, I made a <code>config</code> file in the above mentioned location, put all the environment variables there, and sourced the file through my <code>.zshrc</code>/<code>.bashrc</code> file.</p>
-<h3 id="bookmarks">Bookmarks</h3>
-<p>Put this in your <code>config</code> file</p>
-<div class="highlight"><pre><span></span>export NNN_BMS=&quot;p:&lt;path 1&gt;;q:&lt;path 2&gt;;q:&lt;path 3&gt;;&quot;
-</pre></div>
-<p>The bookmark key is <code>b</code>.
-So, to jump to <code>&lt;path 1&gt;</code>, press <code>bp</code>.</p>
-<hr />
-<h1 id="to-do">TO-DO</h1>
-<h2 id="scripting">Scripting</h2>
-<h3 id="open-current-directory-in-feh">Open current directory in <code>feh</code></h3>
-<h3 id="set-current-picture-as-wallpaper">Set current picture as wallpaper</h3>
-<h3 id="sort-current-directory-only">Sort current directory only</h3></div>
+<p>To the me who has been hiding for a long time due to IRL resposibilities, welcome back!</p></div>
             </div>
         </div>
 

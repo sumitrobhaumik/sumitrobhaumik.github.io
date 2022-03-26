@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         
-        <link rel="canonical" href="https://sumitrobhaumik.co/blog_posts/minimal_ubuntu/">
+        <link rel="canonical" href="https://sumitrobhaumik.github.io/blog_posts/minimal_ubuntu/">
         <link rel="shortcut icon" href="../../img/favicon.ico">
         <title>Truly Minimal Ubuntu Installation with a Window Manager - Sumitro's Corner</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
@@ -135,17 +135,18 @@ libxcb-xinerama0-dev libxcb-xkb-dev libxcb-shape0-dev libxcb-xrm-dev xutils-dev
 <h3 id="installing-i3">Installing i3</h3>
 <p><a href="https://github.com/pasiegel/i3-gaps-install-ubuntu">Source</a></p>
 <p>Now that our build environment is ready, we can compile and install <code>i3</code></p>
-<p>There are 3 popular versions of <code>i3</code> that I know of</p>
+<p><strong>Update: The installtion process has completely changed.
+Please refer to official documentation.</strong></p>
+<p>There are 2 popular versions of <code>i3</code> that I know of</p>
 <ol>
 <li>The original <a href="https://github.com/i3/i3"><code>i3</code></a></li>
 <li><a href="https://github.com/Airblader/i3"><code>i3-gaps</code></a> by <a href="https://github.com/Airblader">Airblader</a> which has support for gaps between windows</li>
-<li><a href="https://github.com/resloved/i3"><code>i3-gaps</code></a> by <a href="https://github.com/resloved">resolved</a> which has support for rounded corner for windows</li>
 </ol>
-<p>I prefer installing <a href="https://github.com/resloved/i3"><code>i3-gaps</code></a> by resolved.
+<p>I prefer installing <a href="https://github.com/Airblader/i3"><code>i3-gaps</code></a> by resolved.
 However, the installation procedure is the same for all variants.
 Also, this might be a few commits behind <code>i3-gaps</code>.</p>
 <p>So clone, make and install <code>i3</code></p>
-<div class="highlight"><pre><span></span>git clone https://github.com/resloved/i3
+<div class="highlight"><pre><span></span>git clone https://github.com/Airblader/i3
 cd i3
 autoreconf --force --install
 rm -rf build
